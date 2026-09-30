@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine, select, String, Double, DateTime, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
-#연결 설정
-load_dotenv()  #환경변수 등록
+#연결 설정: MySQL 접속
+load_dotenv()  #.env 파일을 읽음
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL is None:
     raise RuntimeError(".env 파일에 DATABASE_URL이 없습니다.")

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.database import init_db
+from app.router import unit_router
 
 init_db() #서버 시작 -> 테이블 생성 및 데이터 입력
 
@@ -13,3 +14,5 @@ app = FastAPI(
 @app.get("/")
 def root():
     return {"message": "AIE week3 server is running"}
+
+app.include_router(unit_router)
